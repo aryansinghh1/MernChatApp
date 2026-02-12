@@ -30,7 +30,7 @@ app.get("/",(req,res)=> res.send("Chat API Running"));
 app.use(errorMiddleware);
 
 //DB + server start
-connectDB.then(()=>{
+connectDB().then(()=>{
     const PORT = process.env.PORT || 5000;
     server.listen(PORT,()=> console.log(`Server is running on ${PORT}`));
 })
