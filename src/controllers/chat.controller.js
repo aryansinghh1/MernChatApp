@@ -35,7 +35,7 @@ exports.sendMessage = asyncHandler(async (req,res)=>{
     //realtime emit
     const receiverSocket = onlineUsers.get(receiver);
     if(receiverSocket){
-        getIO.to(receiverSocket).emit("new_message",chat);
+        getIO().to(receiverSocket).emit("new_message",chat);
     }
 
     res.status(201).json(chat);
